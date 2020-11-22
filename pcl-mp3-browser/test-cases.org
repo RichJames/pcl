@@ -1,0 +1,49 @@
+#+title: PCL MP3 Browser Test Cases
+
+* Straight play
+No repeat
+** 4 songs
+Expected result: all 4 songs play, in order, then stops.
+
+*** Result: *Pass*
+All 4 songs play, then it says "At end of playlist" in RhythmBox, but it looks like it is just playing silence at the end.  This is by design.  I need to understand what happens when it is playing this silence file.  It isn't infinitely long, so it either repeats it or something else happens.
+
+I can't hit the stop button in RhythmBox and make it stop playing this.  I have to click away to another stream first to get back control. Why can't I hit the stop button here?  Need to test this again.
+
+I also can't make it play the list again.  Inspecting the playlist I find that all 4 songs are still in it, but the current-idx is set to 4 and the current song is silence.mp3. This is by design.  However, it should play the last song and repeat it if I set the playlist repeat mode to SONG (it might take time before it repeats as silence.mp3 likely needs to finish first).
+** 1 song
+Expected result: the one song plays, then stops.
+** 0 songs
+Expected result: the silence track, plays, then stops? Repeats?
+
+* Repeat play
+** Repeat: Song
+*** 2+ songs
+Expected result: the 1st song plays, then repeats, ad nauseum.
+
+**** Result: *Pass*
+It plays the 1st song, as expected.  Doesn't move on to the next song.
+*** 1 song
+Expected result: the one song plays, then repeats, ad nauseum.
+
+**** Result: *Pass*
+It didn't repeat. Just displays At end of playlist.  I selected repeat after starting the playback, so not sure if that impacted the result.
+
+So, actually, it did repeat.  It just took a long time for it to reload the buffer.  Generally, it is slow to start playing with any playlist that is loaded.  I wonder why?
+
+Another thing: it repeated quickly after the first repeat.  I think it must have had to reload the buffer stream, but having done that it repeats quickly.
+** Repeat: All
+*** 2+ songs, repeat all set during playback
+Expected result: play list is played in order, then repeats entire playlist, ad nauseum.
+
+**** Result: *Fail*
+Didn't repeat properly.  Continued to just repeat the 1st song, which was the setting before I changed it to All.  
+
+However, when I had a playlist with repeat set to none that ended and I then set it to repeat all, it eventually did start playing again, although it started with the last song before repeating all.  It took a long while for it to start playing.  I think the silence file might be pretty big.
+
+*** 2+ songs, repeat all set before playback
+**** Result: Pass
+
+*** 1 song
+Expected result: same as 2+ songs, only just one song is played over and over.
+
