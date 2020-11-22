@@ -1,7 +1,7 @@
 # PCL - Practical Common Lisp
 ## Example programs for learning Common Lisp
 
-These subdirectories contain code from the various chapters in Peter Seiblel's **Practical Common Lisp**, which I recreated while working through the book.  The code works, although I don't claim it has been thoroughly tested.
+These subdirectories contain code from the various chapters in Peter Seibel's **Practical Common Lisp**, which I recreated while working through the book.  The code works, although I don't claim it has been thoroughly tested.
 
 I did all my work using SBCL as my Common Lisp.
 
