@@ -5,7 +5,7 @@
 (defparameter *mp3-dir* "/home/rich/Music/mp3s/v2.3")
 
 ;; Define the css stylesheet to use
-(defparameter *mp3-css* "/home/rich/quicklisp/local-projects/rich/pcl-mp3-browser/mp3-browser.css")
+(defparameter *mp3-css* "/home/rich/quicklisp/local-projects/rich/pcl/pcl-mp3-browser/mp3-browser.css")
 
 ;; This function will do the required initializing of the mp3 database and will
 ;; start AllegroServe.

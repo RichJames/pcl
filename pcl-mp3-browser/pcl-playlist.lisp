@@ -67,7 +67,7 @@
 (defun at-end-p (playlist)
   (>= (current-idx playlist) (table-size (songs-table playlist))))
 
-(defparameter *silence-mp3* "~/quicklisp/local-projects/rich/pcl-mp3-browser/silence.mp3")
+(defparameter *silence-mp3* "~/quicklisp/local-projects/rich/pcl/pcl-mp3-browser/silence.mp3")
 
 (defun make-silent-song (title &optional (file *silence-mp3*))
   (make-instance
